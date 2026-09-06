@@ -1,3 +1,3 @@
-# Leetcode solution
+# Leetcode solutions
 
 Made in C++.

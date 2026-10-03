@@ -1,3 +1,4 @@
+#include <format>
 #include <vector>
 
 #if !defined(PITO_LINKEDLIST_H)
@@ -29,6 +30,24 @@ static ListNode* vector2nodes(std::vector<int> nums)
         current = current->next;
     }
     return head;
+}
+
+[[maybe_unused]] static auto printable_nodes(ListNode* nodes)
+{
+    return std::format("{}\n", nodes2vector(nodes));
+}
+
+[[maybe_unused]] inline static bool compare_nodes(ListNode* nodeA, ListNode* nodeB)
+{
+    while (nodeA && nodeB)
+    {
+        if (nodeA->val != nodeB->val) return false;
+        nodeA = nodeA->next;
+        nodeB = nodeB->next;
+    }
+    
+    if (nodeA || nodeB) return false;
+    return true;
 }
 
 #endif
